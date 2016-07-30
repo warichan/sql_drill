@@ -51,6 +51,7 @@ ActiveRecord::Base.establish_connection(config)
 
 ActiveRecord::Migration.create_table :students do |t|
   t.string :name
+  t.boolean :active, defult: true
   t.integer :club_id
 end
 
@@ -86,6 +87,7 @@ punter_culb = Club.create(name: '戦車道')
 yamada = Student.create(name: 'yamada', club: punter_culb)
 takebe = Student.create(name: 'takebe', club: punter_culb)
 ratta = Student.create(name: 'ratta', club: pingpon_culb)
+miho = Student.create(name: 'miporin', club: nil, active: false)
 
 takebe.club.club_reports.create(reported_on: Date.new(2011, 1, 1), score: 20)
 takebe.club.club_reports.create(reported_on: Date.new(2011, 1, 2), score: 20)
